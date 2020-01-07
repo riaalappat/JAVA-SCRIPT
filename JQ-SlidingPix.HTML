@@ -1,0 +1,73 @@
+<html>
+    <head>
+    <meta charset = "UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta http-eqiv="X-UA-Compatible" content="=" ie="edge">
+
+        <title>
+            Document
+        </title>
+        <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <table border = "1">
+            <td align = "center" colspan = "2"><img src = "jackfruit.jpg" id = "image" height = 300px width= 400px ></td>
+            <tr>
+                <td width = 50% align = "center">
+                 <button type = "button" id="pre" onclick="previous()"> Previous</button> </td>
+                <td align = "center" > <button type = "button" id="nex" onclick="next()"> Next</button> </td>
+            </tr>
+                
+        </table>
+    
+    <script >
+  
+var img = $("#image");
+
+var imgs =["mango.jpg","apple.jpg","jackfruit.jpg"];
+var counter = 0;
+
+$(document).ready(function(){
+
+$("pre").click(
+    function()
+    {
+        previous();
+    }
+     );
+ });
+
+$(document).ready(function(){
+
+$("nex").click(
+    function()
+    {
+        next();
+    }
+     );
+ });
+
+//setInterval(()=>next(),2000);
+
+function next(){
+    if (counter == imgs.length-1){
+        counter = 0;
+    }else{
+counter++;}
+$("#image").attr("src", imgs[counter]);
+
+}
+function previous(){
+    if (counter == 0){
+        counter =  imgs.length;
+    }
+counter--;
+document.getElementById("image").src = imgs[counter];
+}
+
+</script>
+</body>
+</html>
